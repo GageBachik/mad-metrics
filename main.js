@@ -13,12 +13,14 @@ $(document).on('ready', function() {
 			sections[0] = sectionCount;
 		},1000);
 
-		$('.content-container:nth-child(3n+3)').on('mouseleave', function(){
+		$('.content-container:nth-child(1n+5)').on('mouseenter', function(){
 			clearTimeout(section);
 			sectionCount = 0;
+			if (sections.length>1) var work = sections.length;
+			console.log(work);
 			section = setInterval(function(){
 				sectionCount++;
-				sections[sections.length] = sectionCount;
+				sections[work] = sectionCount;
 			},1000);
 		});
 
