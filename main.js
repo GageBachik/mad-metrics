@@ -6,17 +6,20 @@ $(document).on('ready', function() {
 		var totalTimeSpent = 0;
 		var timeBeforeSignUp = 0;
 		var sections = [];
+		var sectionCount = 0;
 
-		$('.content-container:nth-child(3n+3)').on('mouseover', function(){
-			if(sections.length === 0){
-				sections.push('Section1:')
-			}else{
-				sections.push('Section' + (1 + sections.length) + ':');
-			}
-			var pause = setInterval(function(){
-				
+		var section = setInterval(function(){
+			sectionCount++;
+			sections[0] = sectionCount;
+		},1000);
+
+		$('.content-container:nth-child(3n+3)').on('mouseleave', function(){
+			clearTimeout(section);
+			sectionCount = 0;
+			section = setInterval(function(){
+				sectionCount++;
+				sections[sections.length] = sectionCount;
 			},1000);
-
 		});
 
 
@@ -34,9 +37,11 @@ $(document).on('ready', function() {
 			// console.log(percentageViewed);
 			// console.log(distanceScrolled);
 			// clearTimeout(pause);
+			console.log(sections);
 		});
 
-		$('a').on('click', function(){
+		$('a').on('click', function(e){
+			e.preventDefault();
 			if(timeBeforeSignUp === 0){
 				timeBeforeSignUp = totalTimeSpent;
 			}
