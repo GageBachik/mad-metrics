@@ -9,14 +9,22 @@
 
 /*Logo*/
 .center-container h2{
+	display: inline-block;
 	padding: 25px;
 	font-size: 48px;
 	margin: 0;
+}
+
+.center-container h2:hover{
+	border-radius: 2px;
+	color: white;
+	background-color: #00ADA9;
 }
 /*Logo*/
 
 /*Nav*/
 nav ul {
+	margin-top: 0;
 	background-color: #293B47;
 	border-radius: 3px;
 	text-align: center;
@@ -45,6 +53,12 @@ nav a:hover{
 	font-size: 16px;
 	font-weight: lighter;
 }
+
+.content-container:nth-child(even){
+	background-color: #00ADA9;
+	box-shadow: 0px 0px 10px 1px #000;
+}
+
 .content-container p{
 	padding: 35px;
 	padding-top: 15px;
@@ -52,4 +66,5 @@ nav a:hover{
 	text-align: left;
 	margin: 0 auto;
 }
+
 /*Content*/
