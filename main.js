@@ -3,14 +3,13 @@ $(document).on('ready', function() {
 		var distanceScrolled = 0;
 		var percentageViewed = ((((window.scrollY + $(window).height()) / $(document).height())*100).toFixed(2));
 		var initialScroll = window.scrollY;
-		var totalTimeSpent = 0;
 		var timeBeforeSignUp = 0;
 		var sections = [0,0,0,0];
 		var fourth = ($(document).height()-$(window).height()) / 4 ;
 
 		var section = setInterval(function(){
 			sections[0] += 1;
-		},1000);
+		},999);
 
 		var interval = setInterval(function() {
 			clearInterval(section);
@@ -49,14 +48,23 @@ $(document).on('ready', function() {
 			// console.log(percentageViewed);
 			// console.log(distanceScrolled);
 			// clearInterval(section);
-			console.log(sections);
+			// console.log(sections);
 		});
 
 		$('a').on('click', function(e){
 			e.preventDefault();
+			var total = 0;
+			console.log(sections);
+			$.each(sections,function() {
+			    total += this;
+			});
 			if(timeBeforeSignUp === 0){
-				timeBeforeSignUp = totalTimeSpent;
+				timeBeforeSignUp = total;
 			}
+		});
+
+		$('button').on('click', function(){
+			alert('Distance Scrolled: '+distanceScrolled +' Pixels\n Percentage Viewed: '+percentageViewed+ ' %\nTime Before Signup: '+timeBeforeSignUp+' Seconds \n');
 		});
 
 	},1);

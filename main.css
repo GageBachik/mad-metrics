@@ -68,3 +68,11 @@ nav a:hover{
 }
 
 /*Content*/
+
+/*Sticky Button*/
+button{
+	position: fixed;
+	bottom: 0;
+	right: 0;
+}
+/*Sticky Button*/
